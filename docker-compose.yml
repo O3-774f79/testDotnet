@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  ds.report:
+    image: ${DOCKER_REGISTRY}dsreport
+    build:
+      context: .\DS.Report
+      dockerfile: Dockerfile

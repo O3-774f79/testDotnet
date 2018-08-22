@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppCompositeRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AppCompositeRoleItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompositeRoleID" Type="int" />
+    <Property Name="RoleID" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AppDocumentNo">
+    <Key>
+      <PropertyRef Name="ProcessCode" />
+      <PropertyRef Name="Year" />
+      <PropertyRef Name="Additional01" />
+      <PropertyRef Name="Additional02" />
+      <PropertyRef Name="Additional03" />
+    </Key>
+    <Property Name="ProcessCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentNoPrefix" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastRunningNo" Type="int" />
+    <Property Name="RunningNoDigit" Type="int" />
+    <Property Name="Year" Type="smallint" Nullable="false" />
+    <Property Name="Additional01" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Additional02" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Additional03" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogDate" Type="datetime2" Precision="7" />
+    <Property Name="LogBy" Type="nvarchar" MaxLength="200" />
+    <Property Name="Method" Type="nvarchar" MaxLength="200" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="Data1" Type="nvarchar(max)" />
+    <Property Name="Data2" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AppMenu">
+    <Key>
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MenuType" Type="nvarchar" MaxLength="20" />
+    <Property Name="ParentMenuCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sequence" Type="int" />
+    <Property Name="RoleForManage" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoleForDisplay" Type="nvarchar" MaxLength="100" />
+    <Property Name="Controller" Type="nvarchar" MaxLength="100" />
+    <Property Name="Action" Type="nvarchar" MaxLength="100" />
+    <Property Name="Area" Type="nvarchar" MaxLength="100" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AppSingleRole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Attachment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcessCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="DataKey" Type="nvarchar" MaxLength="100" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FileSize" Type="int" />
+    <Property Name="MimeType" Type="nvarchar" MaxLength="200" />
+    <Property Name="AttachDate" Type="datetime2" Precision="7" />
+    <Property Name="AttachBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="SavedFileName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FileExtension" Type="nvarchar" MaxLength="100" />
+    <Property Name="FileUniqueKey" Type="nvarchar" MaxLength="100" />
+    <Property Name="DocumentDate" Type="datetime2" Precision="7" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="AttachmentGroup" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Authority">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Remark1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Remark2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Remark3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Remark4" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Remark5" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="AuthorityCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="BRB" Type="bit" />
+    <Property Name="BRT" Type="bit" />
+    <Property Name="SCO" Type="bit" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BoardUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BSNo" Type="nvarchar" MaxLength="16" />
+    <Property Name="BSDate" Type="datetime2" Precision="7" />
+    <Property Name="BankCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="To" Type="nvarchar(max)" />
+    <Property Name="Topic" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreatePos" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateOrg" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="TopicDate" Type="nvarchar(max)" />
+    <Property Name="TopicDetail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BSCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BSNo" Type="nvarchar" MaxLength="16" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Topic" Type="nvarchar(max)" />
+    <Property Name="ValueDate" Type="datetime2" Precision="7" />
+    <Property Name="TotalNoCR" Type="int" />
+    <Property Name="BankAccount" Type="nvarchar(max)" />
+    <Property Name="DebitAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="ExportDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BSPayee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BSCompanyID" Type="int" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="TopicID" Type="int" />
+    <Property Name="BankAccount" Type="nvarchar" MaxLength="40" />
+    <Property Name="FiDoc" Type="nvarchar" MaxLength="20" />
+    <Property Name="PayeeTaxID" Type="nvarchar" MaxLength="40" />
+    <Property Name="PayeeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="BSSigner">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Signer" Type="nvarchar" MaxLength="11" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CANo" Type="nvarchar" MaxLength="15" />
+    <Property Name="CADate" Type="datetime2" Precision="7" />
+    <Property Name="FundSAP" Type="nvarchar" MaxLength="25" />
+    <Property Name="IOSAP" Type="nvarchar" MaxLength="25" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="CostCenter" Type="nvarchar" MaxLength="10" />
+    <Property Name="ReserveBudget" Type="nvarchar" MaxLength="20" />
+    <Property Name="InternalMemoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Objective" Type="nvarchar" MaxLength="80" />
+    <Property Name="ObjectiveDesc" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+    <Property Name="RequireDate" Type="datetime2" Precision="7" />
+    <Property Name="ReceiveDate" Type="datetime2" Precision="7" />
+    <Property Name="DueDate" Type="datetime2" Precision="7" />
+    <Property Name="ReceiveID" Type="nvarchar" MaxLength="13" />
+    <Property Name="BusinessPlace" Type="nvarchar" MaxLength="20" />
+    <Property Name="PaymentPlace" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="PrepareBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="RequestDate" Type="datetime2" Precision="7" />
+    <Property Name="RequestFor" Type="nvarchar" MaxLength="11" />
+    <Property Name="RequestPos" Type="nvarchar" MaxLength="9" />
+    <Property Name="RequestOrg" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreatePos" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateOrg" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="SAPMessage" Type="nvarchar(max)" />
+    <Property Name="ReceiveType" Type="nvarchar" MaxLength="2" />
+    <Property Name="Executive" Type="bit" />
+    <Property Name="ReceiveRemark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CAReceive">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CANo" Type="nvarchar" MaxLength="15" />
+    <Property Name="CAReceiveDate" Type="datetime2" Precision="7" />
+    <Property Name="TitleTH" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstNameTH" Type="nvarchar" MaxLength="80" />
+    <Property Name="MiddleNameTH" Type="nvarchar" MaxLength="80" />
+    <Property Name="LastNameTH" Type="nvarchar" MaxLength="80" />
+    <Property Name="TitleEN" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstNameEN" Type="nvarchar" MaxLength="20" />
+    <Property Name="MiddleNameEN" Type="nvarchar" MaxLength="80" />
+    <Property Name="LastNameEN" Type="nvarchar" MaxLength="80" />
+    <Property Name="No" Type="nvarchar" MaxLength="80" />
+    <Property Name="Moo" Type="nvarchar" MaxLength="80" />
+    <Property Name="Trok" Type="nvarchar" MaxLength="80" />
+    <Property Name="Soi" Type="nvarchar" MaxLength="80" />
+    <Property Name="Tanon" Type="nvarchar" MaxLength="80" />
+    <Property Name="Tambon" Type="nvarchar" MaxLength="80" />
+    <Property Name="Amper" Type="nvarchar" MaxLength="80" />
+    <Property Name="Jangwat" Type="nvarchar" MaxLength="80" />
+    <Property Name="ExpiryDate" Type="nvarchar" MaxLength="80" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="CompanyBankInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="BankCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="80" />
+    <Property Name="BankBranchCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="BankBranchName" Type="nvarchar" MaxLength="80" />
+    <Property Name="AccountType" Type="nvarchar" MaxLength="10" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="80" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CompanyManager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CompanyManagerItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyManagerID" Type="int" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="11" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ConfigureValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Value" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="ConnectionLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogType" Type="nvarchar" MaxLength="20" />
+    <Property Name="LogDate" Type="datetime2" Precision="7" />
+    <Property Name="User" Type="nvarchar" MaxLength="100" />
+    <Property Name="IP" Type="nvarchar" MaxLength="20" />
+    <Property Name="Browser" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserAgent" Type="nvarchar(max)" />
+    <Property Name="BrowserVersion" Type="nvarchar" MaxLength="20" />
+    <Property Name="BrowserType" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsMobile" Type="bit" />
+    <Property Name="MobileModel" Type="nvarchar" MaxLength="30" />
+    <Property Name="MobileManufacturer" Type="nvarchar" MaxLength="30" />
+    <Property Name="DocumentNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CostCenter">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="40" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CostCenterManager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CostCenter" Type="nvarchar" MaxLength="11" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CostCenterManagerItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CostCenterManagerID" Type="int" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="11" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="EmailTask">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TaskCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TaskBy" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="DocNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailTaskContent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailTaskID" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailTaskReceiver">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailTaskID" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReceiverType" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailTemplate">
+    <Key>
+      <PropertyRef Name="EmailType" />
+    </Key>
+    <Property Name="EmailType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ExecutiveUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="ADUser" Type="nvarchar" MaxLength="40" />
+    <Property Name="NoReport" Type="bit" />
+  </EntityType>
+  <EntityType Name="HolidayCalendar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="HolidayDate" Type="datetime2" Precision="7" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="PublicHoliday" Type="bit" />
+  </EntityType>
+  <EntityType Name="HRBusinessPlace">
+    <Key>
+      <PropertyRef Name="BusinessPlace" />
+      <PropertyRef Name="ComCode" />
+    </Key>
+    <Property Name="BusinessPlace" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="BusinessPlaceName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HRCompany">
+    <Key>
+      <PropertyRef Name="ComCode" />
+    </Key>
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="SAPComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ShortText" Type="nvarchar" MaxLength="10" />
+    <Property Name="LongText" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+    <Property Name="Email" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="HREmployee">
+    <Key>
+      <PropertyRef Name="EmpNo" />
+    </Key>
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="TitleTH" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstnameTH" Type="nvarchar" MaxLength="60" />
+    <Property Name="LastnameTH" Type="nvarchar" MaxLength="60" />
+    <Property Name="TitleEN" Type="nvarchar" MaxLength="15" />
+    <Property Name="FirstnameEN" Type="nvarchar" MaxLength="60" />
+    <Property Name="LastnameEN" Type="nvarchar" MaxLength="60" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="ADUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="OfficeTel" Type="nvarchar" MaxLength="100" />
+    <Property Name="IDCard" Type="nvarchar" MaxLength="30" />
+    <Property Name="EmpStatus" Type="nvarchar" MaxLength="1" />
+    <Property Name="GradeCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="GradeText" Type="nvarchar" MaxLength="60" />
+    <Property Name="PositionID" Type="nvarchar" MaxLength="9" />
+    <Property Name="OrgID" Type="nvarchar" MaxLength="9" />
+    <Property Name="ManagerEmpNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="BirthDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="HREmployeeMobile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="HROrg">
+    <Key>
+      <PropertyRef Name="OrgID" />
+    </Key>
+    <Property Name="OrgID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="OrgName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ManagerEmpNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+    <Property Name="OrgLevel" Type="nvarchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="HROrgRelation">
+    <Key>
+      <PropertyRef Name="ParentOrgID" />
+      <PropertyRef Name="ChildOrgID" />
+    </Key>
+    <Property Name="ParentOrgID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ParentOrgName" Type="nvarchar" MaxLength="40" />
+    <Property Name="ChildOrgID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ChildOrgName" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="HRPosition">
+    <Key>
+      <PropertyRef Name="PosID" />
+    </Key>
+    <Property Name="PosID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PosName" Type="nvarchar" MaxLength="40" />
+    <Property Name="PosLevel" Type="nvarchar" MaxLength="6" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="OTP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="11" />
+    <Property Name="CommitDate" Type="datetime2" Precision="7" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="PVType" Type="nvarchar" MaxLength="20" />
+    <Property Name="CANo" Type="nvarchar" MaxLength="150" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayID" Type="nvarchar" MaxLength="11" />
+    <Property Name="Section" Type="nvarchar" MaxLength="80" />
+    <Property Name="PVCostCenter" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayOrg" Type="nvarchar" MaxLength="8" />
+    <Property Name="PayAddress" Type="nvarchar(max)" />
+    <Property Name="PayDate" Type="datetime2" Precision="7" />
+    <Property Name="PrintDate" Type="datetime2" Precision="7" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="VAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="CAAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="NetAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="ClearCANo" Type="nvarchar" MaxLength="12" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="TotalInvoice" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalVAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalPay" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="Special" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreatePos" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateOrg" Type="nvarchar" MaxLength="9" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="AttachedFile" Type="nvarchar" MaxLength="100" />
+    <Property Name="PayName" Type="nvarchar" MaxLength="150" />
+    <Property Name="PrepareByDept" Type="nvarchar" MaxLength="30" />
+    <Property Name="SAPMessage" Type="nvarchar(max)" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+    <Property Name="ExchangeRate" Type="nvarchar" MaxLength="40" />
+    <Property Name="DocStatus" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PVActivitySAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="ProcessInstanceID" Type="int" />
+    <Property Name="Step" Type="nvarchar" MaxLength="16" />
+    <Property Name="Activity" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionID" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionType" Type="nvarchar" MaxLength="10" />
+    <Property Name="Action" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionDate" Type="datetime2" Precision="7" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="AllocateUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="PVSAPID" Type="int" />
+  </EntityType>
+  <EntityType Name="PVGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVGroupNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="PVGroupType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PVGroupDate" Type="datetime2" Precision="7" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreatePos" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateOrg" Type="nvarchar" MaxLength="11" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="OrgName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PVGroupItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVGroupNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PVItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="DocNo" Type="nvarchar" MaxLength="16" />
+    <Property Name="Ref" Type="nvarchar" MaxLength="20" />
+    <Property Name="InvoiceDate" Type="datetime2" Precision="7" />
+    <Property Name="DocHT" Type="nvarchar" MaxLength="80" />
+    <Property Name="ST" Type="nvarchar" MaxLength="20" />
+    <Property Name="EntryDate" Type="datetime2" Precision="7" />
+    <Property Name="At1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Invoice" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="At2" Type="nvarchar" MaxLength="20" />
+    <Property Name="VAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="At3" Type="nvarchar" MaxLength="20" />
+    <Property Name="PAY" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="VendorID" Type="nvarchar" MaxLength="11" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="80" />
+    <Property Name="PayeeID" Type="nvarchar" MaxLength="11" />
+    <Property Name="PayeeName" Type="nvarchar" MaxLength="150" />
+    <Property Name="RT" Type="nvarchar" MaxLength="10" />
+    <Property Name="Percent1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Percent2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Percent3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="PVID" Type="int" />
+  </EntityType>
+  <EntityType Name="PVItemSAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="DocNo" Type="nvarchar" MaxLength="16" />
+    <Property Name="Ref" Type="nvarchar" MaxLength="20" />
+    <Property Name="InvoiceDate" Type="datetime2" Precision="7" />
+    <Property Name="DocHT" Type="nvarchar" MaxLength="80" />
+    <Property Name="ST" Type="nvarchar" MaxLength="20" />
+    <Property Name="EntryDate" Type="datetime2" Precision="7" />
+    <Property Name="At1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Invoice" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="At2" Type="nvarchar" MaxLength="20" />
+    <Property Name="VAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="At3" Type="nvarchar" MaxLength="20" />
+    <Property Name="PAY" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="VendorID" Type="nvarchar" MaxLength="11" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="80" />
+    <Property Name="PayeeID" Type="nvarchar" MaxLength="11" />
+    <Property Name="PayeeName" Type="nvarchar" MaxLength="150" />
+    <Property Name="RT" Type="nvarchar" MaxLength="10" />
+    <Property Name="Percent1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Percent2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Percent3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="PVSAPID" Type="int" />
+  </EntityType>
+  <EntityType Name="PVSAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PVNo" Type="nvarchar" MaxLength="12" />
+    <Property Name="PVType" Type="nvarchar" MaxLength="20" />
+    <Property Name="CANo" Type="nvarchar" MaxLength="150" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayID" Type="nvarchar" MaxLength="11" />
+    <Property Name="Section" Type="nvarchar" MaxLength="80" />
+    <Property Name="PVCostCenter" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayOrg" Type="nvarchar" MaxLength="8" />
+    <Property Name="PayAddress" Type="nvarchar(max)" />
+    <Property Name="PayDate" Type="datetime2" Precision="7" />
+    <Property Name="PrintDate" Type="datetime2" Precision="7" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="VAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="CAAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="NetAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="ClearCANo" Type="nvarchar" MaxLength="12" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="TotalInvoice" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalVAT" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalPay" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT1" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT2" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalWHT3" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="Special" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastInterface" Type="datetime2" Precision="7" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="PVSAPID" Type="int" />
+    <Property Name="AttachedFile" Type="nvarchar" MaxLength="100" />
+    <Property Name="PayName" Type="nvarchar" MaxLength="150" />
+    <Property Name="PrepareByDept" Type="nvarchar" MaxLength="30" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+    <Property Name="ExchangeRate" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="RespGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+    <Property Name="BudgetGroup" Type="bit" Nullable="false" />
+    <Property Name="GroupType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="RespGroupAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RespGroupID" Type="int" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="RespGroupComp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RespGroupID" Type="int" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="RespGroupEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RespGroupID" Type="int" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="RespGroupOrg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RespGroupID" Type="int" />
+    <Property Name="OrgID" Type="nvarchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="ReviewManager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="11" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ReviewManagerItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReviewManagerID" Type="int" />
+    <Property Name="Reviewer" Type="nvarchar" MaxLength="11" />
+    <Property Name="ComCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="UserPostal">
+    <Key>
+      <PropertyRef Name="EmpNo" />
+    </Key>
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="UserKey" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompositeRoleID" Type="int" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ValueHelp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ValueType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ValueKey" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ValueText" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sequence" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifyDate" Type="datetime2" Precision="7" />
+    <Property Name="LastModifyBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="WorkflowActivityLog">
+    <Key>
+      <PropertyRef Name="ProcessInstanceID" />
+      <PropertyRef Name="SerialNo" />
+    </Key>
+    <Property Name="ProcessInstanceID" Type="int" Nullable="false" />
+    <Property Name="Step" Type="int" />
+    <Property Name="SerialNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ActionUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionDate" Type="datetime2" Precision="7" />
+    <Property Name="Action" Type="nvarchar" MaxLength="100" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="AllocatedUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="ActionUserCode" Type="nvarchar" MaxLength="11" />
+    <Property Name="ActionUserPosition" Type="nvarchar" MaxLength="9" />
+    <Property Name="ActionUserOrg" Type="nvarchar" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="WorkflowActivityStep">
+    <Key>
+      <PropertyRef Name="ProcessInstanceID" />
+      <PropertyRef Name="Step" />
+      <PropertyRef Name="ActionUser" />
+    </Key>
+    <Property Name="ProcessInstanceID" Type="int" Nullable="false" />
+    <Property Name="Step" Type="int" Nullable="false" />
+    <Property Name="ActionUser" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Activity" Type="nvarchar" MaxLength="20" />
+    <Property Name="FormState" Type="nvarchar" MaxLength="20" />
+    <Property Name="State" Type="nvarchar" MaxLength="20" />
+    <Property Name="ActionUserCode" Type="nvarchar" MaxLength="11" />
+    <Property Name="ActionUserPosition" Type="nvarchar" MaxLength="9" />
+    <Property Name="ActionUserOrg" Type="nvarchar" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="WorkflowDelegate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="ToUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="WorkflowProcess">
+    <Key>
+      <PropertyRef Name="ProcessCode" />
+    </Key>
+    <Property Name="ProcessCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProcessName" Type="nvarchar" MaxLength="200" />
+    <Property Name="K2WorkflowProcess" Type="nvarchar" MaxLength="100" />
+    <Property Name="Controller" Type="nvarchar" MaxLength="100" />
+    <Property Name="Action" Type="nvarchar" MaxLength="100" />
+    <Property Name="Area" Type="nvarchar" MaxLength="100" />
+    <Property Name="AllowConfig" Type="bit" />
+    <Property Name="RejectToInbox" Type="bit" />
+  </EntityType>
+  <EntityType Name="WorkflowProcessInstance">
+    <Key>
+      <PropertyRef Name="ProcessInstanceID" />
+    </Key>
+    <Property Name="ProcessInstanceID" Type="int" Nullable="false" />
+    <Property Name="ProcessCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="DataID" Type="int" />
+    <Property Name="CurrentStep" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="DSDBModelStoreContainer">
+    <EntitySet Name="AppCompositeRole" EntityType="Self.AppCompositeRole" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AppCompositeRoleItem" EntityType="Self.AppCompositeRoleItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AppDocumentNo" EntityType="Self.AppDocumentNo" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AppLog" EntityType="Self.AppLog" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AppMenu" EntityType="Self.AppMenu" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AppSingleRole" EntityType="Self.AppSingleRole" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="Authority" EntityType="Self.Authority" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="AuthorityCompany" EntityType="Self.AuthorityCompany" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="BoardUser" EntityType="Self.BoardUser" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="BS" EntityType="Self.BS" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="BSCompany" EntityType="Self.BSCompany" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="BSPayee" EntityType="Self.BSPayee" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="BSSigner" EntityType="Self.BSSigner" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CA" EntityType="Self.CA" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CAReceive" EntityType="Self.CAReceive" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CompanyBankInfo" EntityType="Self.CompanyBankInfo" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CompanyManager" EntityType="Self.CompanyManager" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CompanyManagerItem" EntityType="Self.CompanyManagerItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ConfigureValue" EntityType="Self.ConfigureValue" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ConnectionLog" EntityType="Self.ConnectionLog" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CostCenter" EntityType="Self.CostCenter" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CostCenterManager" EntityType="Self.CostCenterManager" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="CostCenterManagerItem" EntityType="Self.CostCenterManagerItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="EmailTask" EntityType="Self.EmailTask" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="EmailTaskContent" EntityType="Self.EmailTaskContent" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="EmailTaskReceiver" EntityType="Self.EmailTaskReceiver" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="EmailTemplate" EntityType="Self.EmailTemplate" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ExecutiveUser" EntityType="Self.ExecutiveUser" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HolidayCalendar" EntityType="Self.HolidayCalendar" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HRBusinessPlace" EntityType="Self.HRBusinessPlace" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HRCompany" EntityType="Self.HRCompany" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HREmployee" EntityType="Self.HREmployee" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HREmployeeMobile" EntityType="Self.HREmployeeMobile" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HROrg" EntityType="Self.HROrg" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HROrgRelation" EntityType="Self.HROrgRelation" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="HRPosition" EntityType="Self.HRPosition" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="OTP" EntityType="Self.OTP" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PV" EntityType="Self.PV" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVActivitySAP" EntityType="Self.PVActivitySAP" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVGroup" EntityType="Self.PVGroup" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVGroupItem" EntityType="Self.PVGroupItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVItem" EntityType="Self.PVItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVItemSAP" EntityType="Self.PVItemSAP" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="PVSAP" EntityType="Self.PVSAP" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="RespGroup" EntityType="Self.RespGroup" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="RespGroupAdmin" EntityType="Self.RespGroupAdmin" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="RespGroupComp" EntityType="Self.RespGroupComp" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="RespGroupEmp" EntityType="Self.RespGroupEmp" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="RespGroupOrg" EntityType="Self.RespGroupOrg" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ReviewManager" EntityType="Self.ReviewManager" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ReviewManagerItem" EntityType="Self.ReviewManagerItem" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="UserPostal" EntityType="Self.UserPostal" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="ValueHelp" EntityType="Self.ValueHelp" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="WorkflowActivityLog" EntityType="Self.WorkflowActivityLog" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="WorkflowActivityStep" EntityType="Self.WorkflowActivityStep" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="WorkflowDelegate" EntityType="Self.WorkflowDelegate" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="WorkflowProcess" EntityType="Self.WorkflowProcess" Schema="ds" store:Type="Tables" />
+    <EntitySet Name="WorkflowProcessInstance" EntityType="Self.WorkflowProcessInstance" Schema="ds" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
